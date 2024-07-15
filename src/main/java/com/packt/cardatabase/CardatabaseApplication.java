@@ -50,13 +50,13 @@ public class CardatabaseApplication implements CommandLineRunner {
         for (Car car : repository.findAll()) {
             logger.info("GP brand: {}, model: {}",
                     car.getBrand(), car.getModel());
-            logger.info(owner1.getLastname());
-            Owner myowner = car.getOwner();
-            logger.info(myowner != null ? "not null " : "null");
-            Long ownerId = myowner.getOwnerid();
-            logger.info("mylong: " + ownerId);
-            Owner owner = orepository.findById(ownerId).get();
-            logger.info("owner: " + owner.getFirstname());
+//            logger.info(owner1.getLastname());
+//            Owner myowner = car.getOwner();
+//            logger.info(myowner != null ? "not null " : "null");
+//            Long ownerId = myowner.getOwnerid();
+//            logger.info("mylong: " + ownerId);
+//            Owner owner = orepository.findById(ownerId).get();
+//            logger.info("owner: " + owner.getFirstname());
 
         }
     }
