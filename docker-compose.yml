@@ -1,0 +1,27 @@
+
+
+services:
+  mariadb:
+    image: mariadb:10.5
+    restart: no
+    environment:
+      MYSQL_ROOT_PASSWORD: geheim
+      MYSQL_DATABASE: cardatabase
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.1
+    restart: no
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: geheim
+    ports:
+      - "8081:80"
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:
