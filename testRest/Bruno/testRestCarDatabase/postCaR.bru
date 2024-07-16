@@ -1,0 +1,23 @@
+meta {
+  name: postCaR
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{host}}/api/cars
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "brand":"Toyota",
+    "model":"Corolla",
+    "color":"silver",
+    "registrationNumber":"BBA-3122",
+    "modelYear":2023,
+    "price":38000
+  }
+  
+}

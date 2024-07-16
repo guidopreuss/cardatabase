@@ -1,0 +1,10 @@
+### GET request to example server
+GET http://localhost:8080/cars
+
+###
+GET {{host}}/cars
+###
+GET {{host}}/api/cars
+###
+http://localhost:8080/api/cars/3/owner
+
