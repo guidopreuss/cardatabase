@@ -5,7 +5,12 @@ meta {
 }
 
 get {
-  url: 
+  url: {{host}}/api/cars/search
   body: none
-  auth: none
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: geheim
 }

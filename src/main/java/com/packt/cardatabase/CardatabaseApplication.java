@@ -1,5 +1,6 @@
 package com.packt.cardatabase;
 
+import com.packt.cardatabase.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,11 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.packt.cardatabase.domain.Car;
-import com.packt.cardatabase.domain.CarRepository;
-
-import com.packt.cardatabase.domain.Owner;
-import com.packt.cardatabase.domain.OwnerRepository;
 
 import java.util.Arrays;
 
@@ -23,11 +19,14 @@ public class CardatabaseApplication implements CommandLineRunner {
 
     private final CarRepository repository;
     private final OwnerRepository orepository;
+    private final AppUserRepository urepository;
     public CardatabaseApplication(CarRepository repository,
-                                  OwnerRepository orepository)
+                                  OwnerRepository orepository,
+                                  AppUserRepository urepository)
     {
         this.repository = repository;
         this.orepository = orepository;
+        this.urepository = urepository;
     }
 
 
@@ -37,8 +36,8 @@ public class CardatabaseApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        Owner owner1 = new Owner("John" , "Johnson");
-        Owner owner2 = new Owner("Mary" , "Robinson");
+        Owner owner1 = new Owner("John", "Johnson");
+        Owner owner2 = new Owner("Mary", "Robinson");
         orepository.saveAll(Arrays.asList(owner1, owner2));
         repository.save(new Car("Ford", "Mustang", "Red",
                 "ADF-1121", 2023, 59000, owner1));
@@ -59,6 +58,13 @@ public class CardatabaseApplication implements CommandLineRunner {
 //            logger.info("owner: " + owner.getFirstname());
 
         }
+        // Username: user, password: geheim
+        urepository.save(new AppUser("user",
+                "$2a$12$tH9SYJ27HX/XzT6h41bvx.HRi.bvH9WRhYxYd0cCfdgiApq.UD6Nm", "USER"));
+        // Username: admin, password: geheim
+
+        urepository.save(new AppUser("admin",
+                "$2a$12$tH9SYJ27HX/XzT6h41bvx.HRi.bvH9WRhYxYd0cCfdgiApq.UD6Nm", "ADMIN"));
     }
 
 }
