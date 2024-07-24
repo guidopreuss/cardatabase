@@ -1,5 +1,6 @@
 ### GET request to example server
 GET http://localhost:8080/cars
+Authorization: Basic user geheim
 
 ###
 GET {{host}}/cars

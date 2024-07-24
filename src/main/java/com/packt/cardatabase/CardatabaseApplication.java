@@ -62,8 +62,9 @@ public class CardatabaseApplication implements CommandLineRunner {
         urepository.save(new AppUser("user",
                 "$2a$12$tH9SYJ27HX/XzT6h41bvx.HRi.bvH9WRhYxYd0cCfdgiApq.UD6Nm", "USER"));
         // Username: admin, password: geheim
-
-        urepository.save(new AppUser("admin",
+        logger.info("GP: Saving admin user...");
+        urepository.save(
+                new AppUser("admin",
                 "$2a$12$tH9SYJ27HX/XzT6h41bvx.HRi.bvH9WRhYxYd0cCfdgiApq.UD6Nm", "ADMIN"));
     }
 
